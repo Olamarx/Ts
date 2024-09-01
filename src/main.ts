@@ -5,7 +5,6 @@
 // mixedData = [...stringArr, ...guitars, ...mixedData]
 // console.log(mixedData);
 
-
 // // Tuple: This is more string than an ordinary array.
 // let myTuple: [string, number, boolean] = ['Dave', 42, true]
 
@@ -30,7 +29,6 @@
 //     active: true,
 // }
 
-
 // // Enums
 // // Unlike most Typescript features, Enums are not a type-level addition to Javascript but something added to the language and runtime.
 
@@ -45,111 +43,110 @@
 // console.log(Grade.E);
 
 //Type Eliases
-type stringOrNumber = string | number
+type stringOrNumber = string | number;
 
 type Guitarist = {
-    name: string,
-    active?: boolean,
-    albums: (string | number)[]
-}
+  name: string;
+  active?: boolean;
+  albums: (string | number)[];
+};
 
 // Literal types
-let myName: 'Olamarx'
+let myName: "Olamarx";
 // It has to be Olamarx again
-myName = 'Olamarx'
-
+myName = "Olamarx";
 
 const add = (a: number, b: number): number => {
-    return a + b
-}
+  return a + b;
+};
 
 // Any function that is not returning anything should have a void type of data
 const log = (message: any): void => {
-    console.log(message);
-}
+  console.log(message);
+};
 
-log('Hello')
-log(add(2,3))
-log(add(3, 3))
-
+log("Hello");
+log(add(2, 3));
+log(add(3, 3));
 
 let subtract = function (c: number, d: number): number {
-    return c - d
-}
+  return c - d;
+};
 
 // type mathFunction = (a: number, b: number) => number
 interface mathFunction {
-    (a: number, b: number): number
+  (a: number, b: number): number;
 }
-let multiply: mathFunction = function (e,f) {
-    return e * f
-}
+let multiply: mathFunction = function (e, f) {
+  return e * f;
+};
 
-log(multiply(2, 5))
-
+log(multiply(2, 5));
 
 // Optional parameters
 const addAll = (a: number, b: number, c?: number): number => {
-    if(typeof c !== 'undefined') {
-        return a + b + c
-    }
-    return a + b
-}
+  if (typeof c !== "undefined") {
+    return a + b + c;
+  }
+  return a + b;
+};
 
 // Default parameter value
 const sumAll = (a: number = 10, b: number, c: number = 2): number => {
-    return a + b + c
-}
+  return a + b + c;
+};
 
-log(addAll(2,3,2))
-log(addAll(2,3))
-log(sumAll(undefined,3))
+log(addAll(2, 3, 2));
+log(addAll(2, 3));
+log(sumAll(undefined, 3));
 
 // Rest parameters
 const total = (a: number, ...nums: number[]): number => {
-    return nums.reduce((prev, curr) => prev + curr)
-}
+  return nums.reduce((prev, curr) => prev + curr);
+};
 
-log(total(1,2,3,4))
-
+log(total(1, 2, 3, 4));
 
 const createError = (errMsg: string) => {
-    throw new Error(errMsg);
-    
-}
+  throw new Error(errMsg);
+};
 
-type One = string
-type Two = string | number
-type Three = 'Hello'
+type One = string;
+type Two = string | number;
+type Three = "Hello";
 
 // convert to more or less specific
-let a: One = 'Hello'
-let b = a as Two // less specific
-let c = a as Three // more specific
+let a: One = "Hello";
+let b = a as Two; // less specific
+let c = a as Three; // more specific
 
 // Angle bracket
-let d = <One>'world'
-let e = <string | number>'world'
+let d = <One>"world";
+let e = <string | number>"world";
 // The Angle bracket cant be used in React
 
-const addOrConcat = (a: number, b: number, c: 'add' | 'concat'): number | string => {
-    if(c === 'add') return a + b
-    return '' + a + b
-}
+const addOrConcat = (
+  a: number,
+  b: number,
+  c: "add" | "concat"
+): number | string => {
+  if (c === "add") return a + b;
+  return "" + a + b;
+};
 
-let myVal: string = addOrConcat(2,2,'concat') as string
+let myVal: string = addOrConcat(2, 2, "concat") as string;
 
 // be careful, TS sees no problem here but a string is returned
-let nextVal: number = addOrConcat(2,2,'concat') as number
+let nextVal: number = addOrConcat(2, 2, "concat") as number;
 
 // 10 as string
 // (10 as unknown) as string
 
 // The DOM
-const img = document.getElementById('img') as HTMLImageElement
-const myImg = document.getElementById('img')
+const img = document.getElementById("img") as HTMLImageElement;
+const myImg = document.getElementById("img");
 
-img.src
+img.src;
 
 // First variation
 // let year: HTMLElement | null
@@ -161,8 +158,7 @@ img.src
 //     year.textContent = thisYear
 // }
 
-
-let year = document.getElementById('year') as HTMLSpanElement
-let thisYear: string = new Date().getFullYear().toString()
-year.setAttribute('datetime', thisYear)
-year.textContent = thisYear
+let year = document.getElementById("year") as HTMLSpanElement;
+let thisYear: string = new Date().getFullYear().toString();
+year.setAttribute("datetime", thisYear);
+year.textContent = thisYear;
