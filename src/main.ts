@@ -227,3 +227,30 @@ class Guitarist implements Musician {
 }
 
 const Tony = new Guitarist("Tony", "Guitar");
+console.log(Tony.play("plays"));
+
+////////////////////////////////
+
+class Peeps {
+  static count: number = 0;
+
+  static getCount(): number {
+   return Peeps.count
+  }
+
+  public id: number
+  constructor(public name: string) {
+    this.name = name;
+    this.id = ++Peeps.count;
+  }
+}
+
+const John = new Peeps("John");
+const Wilson = new Peeps("Wilson");
+const Henny = new Peeps("Henny");
+
+console.log(Peeps.count);
+
+class Bands {
+  
+}
