@@ -205,8 +205,6 @@ class WebDev extends Coder {
 const Sara = new WebDev("Windows", "Sara", "Afrojuju", 25);
 console.log(Sara.getLang());
 
-
-
 // Implementing an Interface in a class
 interface Musician {
   name: string;
@@ -215,17 +213,17 @@ interface Musician {
 }
 
 class Guitarist implements Musician {
-name: string;
-instrument: string;
+  name: string;
+  instrument: string;
 
-constructor(name: string, instrument: string) {
-  this.name = name;
-  this.instrument = instrument;
-  
+  constructor(name: string, instrument: string) {
+    this.name = name;
+    this.instrument = instrument;
+  }
+
+  play(action: string): string {
+    return `${this.name} ${action} the ${this.instrument}`;
+  }
 }
 
-play(action: string): string {
-    return`${this.name} ${action} the ${this.instrument}`;
-}
-}
-
+const Tony = new Guitarist("Tony", "Guitar");
