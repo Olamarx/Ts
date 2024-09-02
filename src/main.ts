@@ -43,110 +43,110 @@
 // console.log(Grade.E);
 
 //Type Eliases
-type stringOrNumber = string | number;
+// type stringOrNumber = string | number;
 
-type Guitarist = {
-  name: string;
-  active?: boolean;
-  albums: (string | number)[];
-};
+// type Guitarist = {
+//   name: string;
+//   active?: boolean;
+//   albums: (string | number)[];
+// };
 
 // Literal types
-let myName: "Olamarx";
+// let myName: "Olamarx";
 // It has to be Olamarx again
-myName = "Olamarx";
+// myName = "Olamarx";
 
-const add = (a: number, b: number): number => {
-  return a + b;
-};
+// const add = (a: number, b: number): number => {
+//   return a + b;
+// };
 
 // Any function that is not returning anything should have a void type of data
-const log = (message: any): void => {
-  console.log(message);
-};
+// const log = (message: any): void => {
+//   console.log(message);
+// };
 
-log("Hello");
-log(add(2, 3));
-log(add(3, 3));
+// log("Hello");
+// log(add(2, 3));
+// log(add(3, 3));
 
-let subtract = function (c: number, d: number): number {
-  return c - d;
-};
+// let subtract = function (c: number, d: number): number {
+//   return c - d;
+// };
 
 // type mathFunction = (a: number, b: number) => number
-interface mathFunction {
-  (a: number, b: number): number;
-}
-let multiply: mathFunction = function (e, f) {
-  return e * f;
-};
+// interface mathFunction {
+//   (a: number, b: number): number;
+// }
+// let multiply: mathFunction = function (e, f) {
+//   return e * f;
+// };
 
-log(multiply(2, 5));
+// log(multiply(2, 5));
 
 // Optional parameters
-const addAll = (a: number, b: number, c?: number): number => {
-  if (typeof c !== "undefined") {
-    return a + b + c;
-  }
-  return a + b;
-};
+// const addAll = (a: number, b: number, c?: number): number => {
+//   if (typeof c !== "undefined") {
+//     return a + b + c;
+//   }
+//   return a + b;
+// };
 
 // Default parameter value
-const sumAll = (a: number = 10, b: number, c: number = 2): number => {
-  return a + b + c;
-};
+// const sumAll = (a: number = 10, b: number, c: number = 2): number => {
+//   return a + b + c;
+// };
 
-log(addAll(2, 3, 2));
-log(addAll(2, 3));
-log(sumAll(undefined, 3));
+// log(addAll(2, 3, 2));
+// log(addAll(2, 3));
+// log(sumAll(undefined, 3));
 
 // Rest parameters
-const total = (a: number, ...nums: number[]): number => {
-  return nums.reduce((prev, curr) => prev + curr);
-};
+// const total = (a: number, ...nums: number[]): number => {
+//   return nums.reduce((prev, curr) => prev + curr);
+// };
 
-log(total(1, 2, 3, 4));
+// log(total(1, 2, 3, 4));
 
-const createError = (errMsg: string) => {
-  throw new Error(errMsg);
-};
+// const createError = (errMsg: string) => {
+//   throw new Error(errMsg);
+// };
 
-type One = string;
-type Two = string | number;
-type Three = "Hello";
+// type One = string;
+// type Two = string | number;
+// type Three = "Hello";
 
 // convert to more or less specific
-let a: One = "Hello";
-let b = a as Two; // less specific
-let c = a as Three; // more specific
+// let a: One = "Hello";
+// let b = a as Two; // less specific
+// let c = a as Three; // more specific
 
 // Angle bracket
-let d = <One>"world";
-let e = <string | number>"world";
+// let d = <One>"world";
+// let e = <string | number>"world";
 // The Angle bracket cant be used in React
 
-const addOrConcat = (
-  a: number,
-  b: number,
-  c: "add" | "concat"
-): number | string => {
-  if (c === "add") return a + b;
-  return "" + a + b;
-};
+// const addOrConcat = (
+//   a: number,
+//   b: number,
+//   c: "add" | "concat"
+// ): number | string => {
+//   if (c === "add") return a + b;
+//   return "" + a + b;
+// };
 
-let myVal: string = addOrConcat(2, 2, "concat") as string;
+// let myVal: string = addOrConcat(2, 2, "concat") as string;
 
 // be careful, TS sees no problem here but a string is returned
-let nextVal: number = addOrConcat(2, 2, "concat") as number;
+// let nextVal: number = addOrConcat(2, 2, "concat") as number;
 
 // 10 as string
 // (10 as unknown) as string
 
 // The DOM
-const img = document.getElementById("img") as HTMLImageElement;
-const myImg = document.getElementById("img");
+// const img = document.getElementById("img") as HTMLImageElement;
+// const myImg = document.getElementById("img");
 
-img.src;
+// img.src;
 
 // First variation
 // let year: HTMLElement | null
@@ -158,7 +158,74 @@ img.src;
 //     year.textContent = thisYear
 // }
 
-let year = document.getElementById("year") as HTMLSpanElement;
-let thisYear: string = new Date().getFullYear().toString();
-year.setAttribute("datetime", thisYear);
-year.textContent = thisYear;
+// let year = document.getElementById("year") as HTMLSpanElement;
+// let thisYear: string = new Date().getFullYear().toString();
+// year.setAttribute("datetime", thisYear);
+// year.textContent = thisYear;
+
+class Coder {
+  secondLang!: string;
+  constructor(
+    public readonly name: string,
+    public music: string,
+    // Protected and private members can not be accessed directly outside of the constructor
+    private age: number,
+    protected lang: string = "Tpescript"
+  ) {
+    this.name = name;
+    this.music = music;
+    this.age = age;
+    this.lang = lang;
+  }
+
+  public getAge(): string {
+    return `Hello, I am ${this.age} years old`;
+  }
+}
+
+const Ola = new Coder("Olaoluwa", "Afrobeat", 42, "Typescript");
+console.log(Ola.getAge());
+
+class WebDev extends Coder {
+  constructor(
+    public computer: string,
+    name: string,
+    music: string,
+    age: number
+  ) {
+    super(name, music, age);
+    this.computer = computer;
+  }
+
+  public getLang(): string {
+    return `Hello, I write ${this.lang}`;
+  }
+}
+
+const Sara = new WebDev("Windows", "Sara", "Afrojuju", 25);
+console.log(Sara.getLang());
+
+
+
+// Implementing an Interface in a class
+interface Musician {
+  name: string;
+  instrument: string;
+  play(action: string): string;
+}
+
+class Guitarist implements Musician {
+name: string;
+instrument: string;
+
+constructor(name: string, instrument: string) {
+  this.name = name;
+  this.instrument = instrument;
+  
+}
+
+play(action: string): string {
+    return`${this.name} ${action} the ${this.instrument}`;
+}
+}
+
