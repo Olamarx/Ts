@@ -169,3 +169,4 @@ class Guitarist {
         return `${this.name} ${action} the ${this.instrument}`;
     }
 }
+const Tony = new Guitarist("Tony", "Guitar");
