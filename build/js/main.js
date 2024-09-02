@@ -170,3 +170,22 @@ class Guitarist {
     }
 }
 const Tony = new Guitarist("Tony", "Guitar");
+console.log(Tony.play("plays"));
+////////////////////////////////
+class Peeps {
+    static getCount() {
+        return Peeps.count;
+    }
+    constructor(name) {
+        this.name = name;
+        this.name = name;
+        this.id = ++Peeps.count;
+    }
+}
+Peeps.count = 0;
+const John = new Peeps("John");
+const Wilson = new Peeps("Wilson");
+const Henny = new Peeps("Henny");
+console.log(Peeps.count);
+class Bands {
+}
