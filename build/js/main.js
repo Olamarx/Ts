@@ -187,5 +187,8 @@ const John = new Peeps("John");
 const Wilson = new Peeps("Wilson");
 const Henny = new Peeps("Henny");
 console.log(Peeps.count);
-class Bands {
-}
+const todaysTransactions = {
+    Pizza: -10,
+    Books: -5,
+    Job: 50,
+};
