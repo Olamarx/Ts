@@ -235,10 +235,10 @@ class Peeps {
   static count: number = 0;
 
   static getCount(): number {
-   return Peeps.count
+    return Peeps.count;
   }
 
-  public id: number
+  public id: number;
   constructor(public name: string) {
     this.name = name;
     this.id = ++Peeps.count;
@@ -251,6 +251,17 @@ const Henny = new Peeps("Henny");
 
 console.log(Peeps.count);
 
-class Bands {
-  
+// class Bands {}
+
+
+// Index Signature
+interface TransactionObj {
+  Pizza: number,
+  Books: number,
+  Job: number,
+}
+const todaysTransactions: TransactionObj = {
+  Pizza: -10,
+  Books: -5,
+  Job: 50,
 }
